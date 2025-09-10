@@ -1,50 +1,40 @@
 /*****************************************************************//**
- * \file   Mission.h
- * \brief  Déclaration de la classe Mission
+ * \file   Moto.h
+ * \brief  Déclaration de la classe Moto (version sans moteur)
  *
  * \author Pierre
- * \date   June 2023
+ * \date   Septembre 2025
  *********************************************************************/
 
-#ifndef MISSION_H
-#define MISSION_H
+#ifndef MOTO_H
+#define MOTO_H
 
 #include <iostream>
 #include <string>
 
  /*!
-  * \class Mission
-  * \brief Classe représentant une mission (nombre de personnes, descriptif, durée en heures)
-  *
-  * Cette classe a une finalité pédagogique :
-  * \li : Rappel du C++
-  * \li : Commentaire avec Doxygen
-  * \li : Git, GitHub
+  * \class Moto
+  * \brief Classe représentant une moto (uniquement avec le poids)
   */
-class Mission
+class Moto
 {
 private:
-    int nbPersonne;                ///< Nombre de personnes affectées à la mission
-    std::string descriptifMission; ///< Description textuelle de la mission
-    int nbHeure;                   ///< Durée en heures de la mission
+    int poids;        ///< Poids de la moto en kg
 
 public:
     /* Forme canonique */
-    Mission();                                                        // Constructeur par défaut
-    Mission(int nbPersonne, const std::string& descriptif, int nbHeure); // Constructeur avec paramètres
-    Mission(const Mission& m);                                        // Constructeur de copie
-    Mission& operator=(const Mission& m);                             // Opérateur d’affectation
-    ~Mission();                                                       // Destructeur
+    Moto();                      ///< Constructeur par défaut
+    Moto(int poids);              ///< Constructeur avec paramètres
+    Moto(const Moto& m);          ///< Constructeur de copie
+    Moto& operator=(const Moto& m); ///< Opérateur d’affectation
+    ~Moto();                      ///< Destructeur
 
     /* Accesseurs / Mutateurs */
-    int getNbPersonne() const;
-    void setNbPersonne(int nb);
+    int getPoids() const;         ///< Retourne le poids
+    void setPoids(int p);         ///< Définit le poids
 
-    std::string getDescriptifMission() const;
-    void setDescriptifMission(const std::string& desc);
-
-    int getNbHeure() const;
-    void setNbHeure(int heures);
+    /* Affichage */
+    void afficher() const;        ///< Affiche les infos de la moto
 };
 
-#endif // MISSION_H
+#endif // MOTO_H
