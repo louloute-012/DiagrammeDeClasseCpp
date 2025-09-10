@@ -1,20 +1,59 @@
-// DiagrammeDeClasseCpp.cpp : Ce fichier contient la fonction 'main'. L'exécution du programme commence et se termine à cet endroit.
-//
+/*****************************************************************//**
+ * \file   Moto.cpp
+ * \brief  Implémentation de la classe Moto (version sans moteur)
+ *
+ * \author Pierre
+ * \date   Septembre 2025
+ *********************************************************************/
 
+#include "Moto.h"
 #include <iostream>
 
-int main()
+ /* ======== Constructeurs / Destructeur ======== */
+
+Moto::Moto() : poids(0)
 {
-    std::cout << "Hello World!\n";
+    // Constructeur par défaut
 }
 
-// Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage
-// Déboguer le programme : F5 ou menu Déboguer > Démarrer le débogage
+Moto::Moto(int p) : poids(p)
+{
+    // Constructeur avec paramètres
+}
 
-// Astuces pour bien démarrer : 
-//   1. Utilisez la fenêtre Explorateur de solutions pour ajouter des fichiers et les gérer.
-//   2. Utilisez la fenêtre Team Explorer pour vous connecter au contrôle de code source.
-//   3. Utilisez la fenêtre Sortie pour voir la sortie de la génération et d'autres messages.
-//   4. Utilisez la fenêtre Liste d'erreurs pour voir les erreurs.
-//   5. Accédez à Projet > Ajouter un nouvel élément pour créer des fichiers de code, ou à Projet > Ajouter un élément existant pour ajouter des fichiers de code existants au projet.
-//   6. Pour rouvrir ce projet plus tard, accédez à Fichier > Ouvrir > Projet et sélectionnez le fichier .sln.
+Moto::Moto(const Moto& m) : poids(m.poids)
+{
+    // Constructeur de copie
+}
+
+Moto& Moto::operator=(const Moto& m)
+{
+    if (this != &m) {
+        this->poids = m.poids;
+    }
+    return *this;
+}
+
+Moto::~Moto()
+{
+    // Rien à libérer
+}
+
+/* ======== Accesseurs / Mutateurs ======== */
+
+int Moto::getPoids() const
+{
+    return poids;
+}
+
+void Moto::setPoids(int p)
+{
+    poids = p;
+}
+
+/* ======== Méthode d'affichage ======== */
+
+void Moto::afficher() const
+{
+    std::cout << "Moto - Poids : " << poids << " kg" << std::endl;
+}
