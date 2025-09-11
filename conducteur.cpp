@@ -1,20 +1,32 @@
-// DiagrammeDeClasseCpp.cpp : Ce fichier contient la fonction 'main'. L'exécution du programme commence et se termine à cet endroit.
-//
-
 #include <iostream>
+#include "conducteur.h"
+#include <algorithm>
+using namespace std;
 
-int main()
-{
-    std::cout << "Hello World!\n";
+// Correction : utiliser le nom de classe correct "Conducteur" (majuscule)
+Conducteur::Conducteur(string n, string p, int annee) : 
+    nom(n), prenom(p), anneeNaissance(annee) {}
+
+string Conducteur::getNom() const { return nom; }
+string Conducteur::getPrenom() const { return prenom; }
+int Conducteur::getAnneeNaissance() const { return anneeNaissance; }
+
+void Conducteur::addmoto(Moto* newmoto) {
+    mesmotos.push_back(newmoto);
 }
 
-// Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage
-// Déboguer le programme : F5 ou menu Déboguer > Démarrer le débogage
+void Conducteur::rmmoto(Moto* rmmoto) {
+    auto it = find(mesmotos.begin(), mesmotos.end(), rmmoto);
+    if (it != mesmotos.end()) {
+        mesmotos.erase(it);
+    }
+}
 
-// Astuces pour bien démarrer : 
-//   1. Utilisez la fenêtre Explorateur de solutions pour ajouter des fichiers et les gérer.
-//   2. Utilisez la fenêtre Team Explorer pour vous connecter au contrôle de code source.
-//   3. Utilisez la fenêtre Sortie pour voir la sortie de la génération et d'autres messages.
-//   4. Utilisez la fenêtre Liste d'erreurs pour voir les erreurs.
-//   5. Accédez à Projet > Ajouter un nouvel élément pour créer des fichiers de code, ou à Projet > Ajouter un élément existant pour ajouter des fichiers de code existants au projet.
-//   6. Pour rouvrir ce projet plus tard, accédez à Fichier > Ouvrir > Projet et sélectionnez le fichier .sln.
+void Conducteur::affichemotos() const {
+    cout << "Conducteur: " << nom << " " << prenom << ", Année de naissance: " << anneeNaissance << endl;
+    for (auto m : mesmotos) {
+        if (m) {
+            m->afficher();
+        }
+    }
+}
