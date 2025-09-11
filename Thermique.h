@@ -1,32 +1,19 @@
-* Cette classe a une finalité pédagogique :
-*\li : Rappel du C++
-* \li : Commentaire avec Doxygen
-* \li : Git, GitHub
-* /
-class Mission
-{
+#ifndef THERMIQUE_H
+#define THERMIQUE_H
+
+#include "Moteur.h"
+
+class Thermique : public Moteur {
 private:
-    int nbPersonne;                ///< Nombre de personnes affectées à la mission
-    std::string descriptifMission; ///< Description textuelle de la mission
-    int nbHeure;                   ///< Durée en heures de la mission
+    float cylindree;
 
 public:
-    /* Forme canonique */
-    Mission();                                                        // Constructeur par défaut
-    Mission(int nbPersonne, const std::string& descriptif, int nbHeure); // Constructeur avec paramètres
-    Mission(const Mission& m);                                        // Constructeur de copie
-    Mission& operator=(const Mission& m);                             // Opérateur d’affectation
-    ~Mission();                                                       // Destructeur
+    Thermique(int p = 0, float cyl = 0.0);
 
-    /* Accesseurs / Mutateurs */
-    int getNbPersonne() const;
-    void setNbPersonne(int nb);
+    float getCylindree() const;
+    void setCylindree(float cyl);
 
-    std::string getDescriptifMission() const;
-    void setDescriptifMission(const std::string& desc);
-
-    int getNbHeure() const;
-    void setNbHeure(int heures);
+    void afficher() const override;
 };
 
-#endif // MISSION_H
+#endif
