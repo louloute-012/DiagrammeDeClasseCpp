@@ -3,7 +3,7 @@
 
 #include "Moteur.h"
 
-class Electrique : public Moteur {
+class Electrique : public Moteur { // Héritage
 private:
     float tensionMax;
 
