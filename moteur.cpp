@@ -5,7 +5,11 @@ using namespace std;
 Moteur::Moteur(int p) : puissance(p) {}
 
 int Moteur::getPuissance() const { return puissance; }
-void Moteur::setPuissance(int p) { puissance = p; }
+void Moteur::setPuissance(int p) { 
+    int puissance;
+
+    puissance = p;
+ }
 
 void Moteur::afficher() const {
     cout << "Moteur puissance: " << puissance << " ch" << endl;
