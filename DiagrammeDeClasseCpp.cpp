@@ -1,24 +1,55 @@
 #include <iostream>
 #include "Moto.h"
+#include "Moteur.h"
+#include "Electrique.h"
+#include "Thermique.h"
 
-int main()
-{
-    // Création d’une moto avec le constructeur par défaut
-    Moto m1;
-    m1.setPoids(200);
-    m1.afficher();
+using namespace std;
 
-    // Création d’une moto avec paramètres
-    Moto m2(150);
-    m2.afficher();
+int main() {
+    // Création des moteurs
+    Moteur* moteurClassique = new Moteur(80);
+    Electrique* moteurElectrique = new Electrique(60, 400.0);
+    Thermique* moteurThermique = new Thermique(120, 1.6);
 
-    // Test du constructeur de copie
-    Moto m3 = m2;
-    m3.afficher();
+    // Création des motos avec différents moteurs
+    Moto* moto1 = new Moto(180, moteurClassique);
+    Moto* moto2 = new Moto(200, moteurElectrique);
+    Moto* moto3 = new Moto(220, moteurThermique);
 
-    // Test de l’opérateur d’affectation
-    m1 = m3;
-    m1.afficher();
+    // Affichage des motos
+    cout << "=== Moto avec moteur classique ===" << endl;
+    moto1->afficher();
+
+    cout << "\n=== Moto avec moteur électrique ===" << endl;
+    moto2->afficher();
+
+    cout << "\n=== Moto avec moteur thermique ===" << endl;
+    moto3->afficher();
+
+    // Modifications
+    cout << "\n--- Modifications ---" << endl;
+    moteurClassique->setPuissance(100);
+    moteurElectrique->setTensionMax(450.0);
+    moteurThermique->setCylindree(2.0);
+
+    moto1->setPoids(190);
+    moto2->setPoids(210);
+    moto3->setPoids(230);
+
+    // Réaffichage après modification
+    cout << "\n=== Après modifications ===" << endl;
+    moto1->afficher();
+    moto2->afficher();
+    moto3->afficher();
+
+    // Nettoyage mémoire
+    delete moto1;
+    delete moto2;
+    delete moto3;
+    delete moteurClassique;
+    delete moteurElectrique;
+    delete moteurThermique;
 
     return 0;
 }
