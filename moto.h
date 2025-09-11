@@ -1,40 +1,23 @@
-/*****************************************************************//**
- * \file   Moto.h
- * \brief  Déclaration de la classe Moto (version sans moteur)
- *
- * \author Pierre
- * \date   Septembre 2025
- *********************************************************************/
-
 #ifndef MOTO_H
 #define MOTO_H
 
-#include <iostream>
-#include <string>
+#include "Moteur.h"
 
- /*!
-  * \class Moto
-  * \brief Classe représentant une moto (uniquement avec le poids)
-  */
-class Moto
-{
+class Moto {
 private:
-    int poids;        ///< Poids de la moto en kg
+    int poids;
+    Moteur* moteur; // Composition
 
 public:
-    /* Forme canonique */
-    Moto();                      ///< Constructeur par défaut
-    Moto(int poids);              ///< Constructeur avec paramètres
-    Moto(const Moto& m);          ///< Constructeur de copie
-    Moto& operator=(const Moto& m); ///< Opérateur d’affectation
-    ~Moto();                      ///< Destructeur
+    Moto(int p = 0, Moteur* m = nullptr);
 
-    /* Accesseurs / Mutateurs */
-    int getPoids() const;         ///< Retourne le poids
-    void setPoids(int p);         ///< Définit le poids
+    int getPoids() const;
+    void setPoids(int p);
 
-    /* Affichage */
-    void afficher() const;        ///< Affiche les infos de la moto
+    Moteur* getMoteur() const;
+    void setMoteur(Moteur* m);
+
+    void afficher() const;
 };
 
-#endif // MOTO_H
+#endif

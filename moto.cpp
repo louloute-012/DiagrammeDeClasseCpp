@@ -1,59 +1,16 @@
-/*****************************************************************//**
- * \file   Moto.cpp
- * \brief  Implémentation de la classe Moto (version sans moteur)
- *
- * \author Pierre
- * \date   Septembre 2025
- *********************************************************************/
-
 #include "Moto.h"
 #include <iostream>
+using namespace std;
 
- /* ======== Constructeurs / Destructeur ======== */
+Moto::Moto(int p, Moteur* m) : poids(p), moteur(m) {}
 
-Moto::Moto() : poids(0)
-{
-    // Constructeur par défaut
-}
+int Moto::getPoids() const { return poids; }
+void Moto::setPoids(int p) { poids = p; }
 
-Moto::Moto(int p) : poids(p)
-{
-    // Constructeur avec paramètres
-}
+Moteur* Moto::getMoteur() const { return moteur; }
+void Moto::setMoteur(Moteur* m) { moteur = m; }
 
-Moto::Moto(const Moto& m) : poids(m.poids)
-{
-    // Constructeur de copie
-}
-
-Moto& Moto::operator=(const Moto& m)
-{
-    if (this != &m) {
-        this->poids = m.poids;
-    }
-    return *this;
-}
-
-Moto::~Moto()
-{
-    // Rien à libérer
-}
-
-/* ======== Accesseurs / Mutateurs ======== */
-
-int Moto::getPoids() const
-{
-    return poids;
-}
-
-void Moto::setPoids(int p)
-{
-    poids = p;
-}
-
-/* ======== Méthode d'affichage ======== */
-
-void Moto::afficher() const
-{
-    std::cout << "Moto - Poids : " << poids << " kg" << std::endl;
+void Moto::afficher() const {
+    cout << "Moto -> Poids: " << poids << " kg" << endl;
+    if (moteur) moteur->afficher();
 }
