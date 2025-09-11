@@ -6,32 +6,35 @@
  * \date   June 2023
  *********************************************************************/
 
-#ifndef ENTREPRISE_H
-#define ENTREPRISE_H
+#ifndef Conducteur_H
+#define Conducteur_H
 #include <iostream>
 #include <string>
 
 
- /*! \class Entreprise
-    * \brief classe representant une entreprise. 2 attributs prives
+ /*! \class Conducteur
+    * \brief classe representant une Conducteur. 4 attributs prives
     * 
     * Cette classe a une finalite pedagogique : 
     * \li : Rappel du C++
     * \li : commentaire avec Doxygen
     * \li : git, github
     */
-class Entreprise
+class Conducteur
 {
 
     private:
         /**
-         * Membre prive nomEntreprise : contient le nom de l'entreprise
+		 * Membre prive nomConducteur : contient le nom du conducteur
          */
-        std::string nomEntreprise; 
+        std::string nomConducteur; 
         /**
-         * Membre prive villEntreprise : contient la ville de l'entreprise
+		 * Membre prive prenomConducteur : contient le prenom du conducteur
          */
-        std::string villeEntreprise; 
+        std::string prenomConducteur; 
+        /**
+         * Membre prive anneeNaissance : contient l'age du conducteur
+		 */
 
 
 
