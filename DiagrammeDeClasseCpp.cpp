@@ -3,6 +3,7 @@
 #include "Moteur.h"
 #include "Electrique.h"
 #include "Thermique.h"
+#include "Conducteur.h"
 
 using namespace std;
 
@@ -43,6 +44,17 @@ int main() {
     moto2->afficher();
     moto3->afficher();
 
+
+    // création de conducteur
+    cout << "\n=== Conducteur ===" << endl;
+    Conducteur* conducteur1 = new Conducteur("Doe", "John", 1990);
+	Conducteur* conducteur2 = new Conducteur("Smith", "Jane", 1985);
+
+    conducteur1->addmoto(moto1);
+    conducteur2->addmoto(moto2);
+    conducteur1->affichemotos();    
+	conducteur2->affichemotos();
+
     // Nettoyage mémoire
     delete moto1;
     delete moto2;
@@ -50,6 +62,8 @@ int main() {
     delete moteurClassique;
     delete moteurElectrique;
     delete moteurThermique;
+    delete conducteur1;
+	delete conducteur2;
 
     return 0;
 }

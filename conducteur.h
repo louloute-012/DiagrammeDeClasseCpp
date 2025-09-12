@@ -10,12 +10,14 @@ private:
     std::string prenom;
     int anneeNaissance;
     std::vector<Moto*> mesmotos; // Aggrégation 
-
+    
 public:
     Conducteur(std::string n = "", std::string p = "", int annee = 0);
+    
 
     std::string getNom() const;
     std::string getPrenom() const;
+   
 
 
     int getAnneeNaissance() const;
