@@ -3,21 +3,27 @@
 
 #include "Moteur.h"
 
+
 class Moto {
 private:
-    int poids;
-    Moteur* moteur; // Composition
+    int poids;         // Poids de la moto 
+    Moteur* moteur;    // Pointeur vers un moteur 
 
 public:
+
+    // Initialise une moto avec un poids et un moteur
+    // Par défaut 
     Moto(int p = 0, Moteur* m = nullptr);
 
-    int getPoids() const;
-    void setPoids(int p);
+    int getPoids() const;         // Renvoie le poids
+    void setPoids(int p);         // Modifie le poids
 
-    Moteur* getMoteur() const;
-    void setMoteur(Moteur* m);
+    Moteur* getMoteur() const;    // Renvoie le moteur associé
+    void setMoteur(Moteur* m);    // Associe un moteur à la moto
 
+    // Affiche les caractéristiques de la moto (poids + moteur)
     void afficher() const;
 };
 
-#endif
+#endif 
+
