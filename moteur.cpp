@@ -2,26 +2,31 @@
 #include <iostream>
 using namespace std;
 
-
-
-// Initialise un moteur avec une puissance donnée 
+/**
+ * \brief Constructeur de la classe Moteur
+ * \param p Puissance du moteur (par défaut 0)
+ */
 Moteur::Moteur(int p) : puissance(p) {}
 
-
-// Renvoie la puissance du moteur
+/**
+ * \brief Retourne la puissance du moteur
+ * \return La puissance du moteur
+ */
 int Moteur::getPuissance() const {
     return this->puissance;
 }
 
-
-// Modifie la puissance du moteur
+/**
+ * \brief Modifie la puissance du moteur
+ * \param p La nouvelle puissance du moteur
+ */
 void Moteur::setPuissance(int p) {
     this->puissance = p;
 }
 
-
-// Affiche les informations de base d'un moteur
-// (sera redéfinie par les classes filles : Thermique et Electrique)
+/**
+ * \brief Affiche les informations du moteur
+ */
 void Moteur::afficher() const {
     cout << "Moteur puissance: " << puissance << " ch" << endl;
 }

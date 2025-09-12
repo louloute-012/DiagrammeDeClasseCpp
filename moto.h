@@ -3,27 +3,50 @@
 
 #include "Moteur.h"
 
-
+ /**
+  * \brief Classe representant une moto
+  */
 class Moto {
 private:
-    int poids;         // Poids de la moto 
-    Moteur* moteur;    // Pointeur vers un moteur 
+    int poids;       ///< Poids de la moto en kg
+    Moteur* moteur;  ///< Pointeur vers le moteur de la moto
 
 public:
-
-    // Initialise une moto avec un poids et un moteur
-    // Par défaut 
+    /**
+     * \brief Constructeur de la classe Moto
+     * \param p Poids de la moto (par défaut 0)
+     * \param m Pointeur vers le moteur de la moto (par défaut nullptr)
+     */
     Moto(int p = 0, Moteur* m = nullptr);
 
-    int getPoids() const;         // Renvoie le poids
-    void setPoids(int p);         // Modifie le poids
+    /**
+     * \brief Retourne le poids de la moto
+     * \return Le poids de la moto
+     */
+    int getPoids() const;
 
-    Moteur* getMoteur() const;    // Renvoie le moteur associé
-    void setMoteur(Moteur* m);    // Associe un moteur à la moto
+    /**
+     * \brief Modifie le poids de la moto
+     * \param p Nouveau poids de la moto
+     */
+    void setPoids(int p);
 
-    // Affiche les caractéristiques de la moto (poids + moteur)
+    /**
+     * \brief Retourne le moteur de la moto
+     * \return Pointeur vers le moteur
+     */
+    Moteur* getMoteur() const;
+
+    /**
+     * \brief Modifie le moteur de la moto
+     * \param m Pointeur vers le nouveau moteur
+     */
+    void setMoteur(Moteur* m);
+
+    /**
+     * \brief Affiche les informations de la moto et de son moteur
+     */
     void afficher() const;
 };
 
-#endif 
-
+#endif

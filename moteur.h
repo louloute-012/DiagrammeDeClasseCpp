@@ -1,45 +1,41 @@
 #ifndef MOTEUR_H
 #define MOTEUR_H
 
-
-
+ /**
+  * \brief Classe representant un moteur 
+  */
 class Moteur {
 protected:
-    int puissance;   ///< Puissance du moteur 
+    int puissance;  ///< Puissance du moteur en chevaux
 
 public:
-    /*!
-     * \brief Constructeur
-     * \param p : puissance du moteur 
+    /**
+     * \brief Constructeur de la classe Moteur
+     * \param p Puissance du moteur (par défaut 0)
      */
     Moteur(int p = 0);
 
-    /*!
-     * \brief Accesseur de la puissance
-     * \return la puissance du moteur
+    /**
+     * \brief Retourne la puissance du moteur
+     * \return La puissance du moteur
      */
     int getPuissance() const;
 
-    /*!
-     * \brief Mutateur de la puissance
-     * \param p : nouvelle valeur de la puissance
+    /**
+     * \brief Modifie la puissance du moteur
+     * \param p La nouvelle puissance
      */
     void setPuissance(int p);
 
-    /*!
-     * \brief Méthode virtuelle d'affichage
-     * Affiche les informations du moteur.
-     * Redéfinie dans les classes filles
+    /**
+     * \brief Affiche les informations du moteur
      */
     virtual void afficher() const;
 
-    /*!
+    /**
      * \brief Destructeur virtuel
-     * Défini comme virtuel pour permettre une destruction correcte
-     * des objets polymorphiques (héritage).
      */
     virtual ~Moteur() {}
 };
 
-#endif 
-
+#endif

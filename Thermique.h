@@ -3,23 +3,37 @@
 
 #include "Moteur.h"
 
-class Thermique : public Moteur { // Héritage public de Moteur
+ /**
+  * \brief Classe representant un moteur thermique
+  */
+class Thermique : public Moteur {
 private:
-    float cylindree;  // Cylindrée du moteur 
+    float cylindree; 
 
 public:
-   
-    // Initialise un moteur thermique avec une puissance et une cylindrée
-    // Par défaut : puissance = 0, cylindrée = 0.0
+    /**
+     * \brief Constructeur de la classe Thermique
+     * \param p Puissance du moteur (par défaut 0)
+     * \param cyl Cylindrée du moteur (par défaut 0.0)
+     */
     Thermique(int p = 0, float cyl = 0.0);
 
- 
-    float getCylindree() const;      // Renvoie la cylindrée
-    void setCylindree(float cyl);    // Modifie la cylindrée
+    /**
+     * \brief Retourne la cylindrée du moteur
+     * \return La cylindrée du moteur
+     */
+    float getCylindree() const;
 
+    /**
+     * \brief Modifie la cylindree du moteur
+     * \param cyl La nouvelle cylindrée
+     */
+    void setCylindree(float cyl);
 
-    // Redéfinit la méthode virtuelle afficher() de la classe Moteur
+    /**
+     * \brief Affiche les informations du moteur thermique
+     */
     void afficher() const override;
 };
 
-#endif 
+#endif
