@@ -50,10 +50,10 @@ int main() {
     Conducteur* conducteur1 = new Conducteur("Doe", "John", 1990);
 	Conducteur* conducteur2 = new Conducteur("Smith", "Jane", 1985);
 
-    conducteur1->addmoto(moto1);
-    conducteur2->addmoto(moto2);
-    conducteur1->affichemotos();    
-	conducteur2->affichemotos();
+    conducteur1->addMoto(moto1);
+    conducteur2->addMoto(moto2);
+    conducteur1->afficheMotos();    
+	conducteur2->afficheMotos();
 
     // Nettoyage mémoire
     delete moto1;

@@ -5,8 +5,8 @@
 using namespace std;
 
 
-Conducteur::Conducteur(string n, string p, int annee)
-    : nom(n), prenom(p), anneeNaissance(annee) {
+Conducteur::Conducteur(string n, string p, int annee) 
+    : nom(n), prenom(p), anneeNaissance(annee) { 
 }
 
 string Conducteur::getNom() const {
