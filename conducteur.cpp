@@ -1,32 +1,40 @@
+#include "Conducteur.h"
 #include <iostream>
-#include "conducteur.h"
 #include <algorithm>
+
 using namespace std;
 
-// Correction : utiliser le nom de classe correct "Conducteur" (majuscule)
-Conducteur::Conducteur(string n, string p, int annee) : 
-    nom(n), prenom(p), anneeNaissance(annee) {}
 
-string Conducteur::getNom() const { return nom; }
-string Conducteur::getPrenom() const { return prenom; }
-int Conducteur::getAnneeNaissance() const { return anneeNaissance; }
-
-void Conducteur::addmoto(Moto* newmoto) {
-    mesmotos.push_back(newmoto);
+Conducteur::Conducteur(string n, string p, int annee)
+    : nom(n), prenom(p), anneeNaissance(annee) {
 }
 
-void Conducteur::rmmoto(Moto* rmmoto) {
-    auto it = find(mesmotos.begin(), mesmotos.end(), rmmoto);
-    if (it != mesmotos.end()) {
-        mesmotos.erase(it);
-    }
+string Conducteur::getNom() const {
+    return nom;
 }
 
-void Conducteur::affichemotos() const {
-    cout << "Conducteur: " << nom << " " << prenom << ", Année de naissance: " << anneeNaissance << endl;
-    for (auto m : mesmotos) {
-        if (m) {
-            m->afficher();
-        }
+string Conducteur::getPrenom() const {
+    return prenom;
+}
+
+
+int Conducteur::getAnneeNaissance() const {
+    return anneeNaissance;
+}
+
+
+void Conducteur::addMoto(Moto* newMoto) {
+    mesMotos.push_back(newMoto);
+}
+
+
+void Conducteur::rmMoto(Moto* rmMoto) {
+    mesMotos.erase(remove(mesMotos.begin(), mesMotos.end(), rmMoto), mesMotos.end());
+}
+
+void Conducteur::afficheMotos() const {
+    cout << "Conducteur: " << prenom << " " << nom << " (" << anneeNaissance << ")" << endl;
+    for (auto m : mesMotos) {
+        m->afficher();
     }
 }
